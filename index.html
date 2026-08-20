@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TutorEd — The right tutor. The right fit.</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
   <meta name="description" content="TutorEd helps students find tutors who fit how they learn." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,30 +66,12 @@
       letter-spacing:-1.1px;
     }
     .logo-bulb {
-      width:30px;
+      height:32px;
+      width:auto;
+      display:block;
+    }
+    .footer-brand .logo-bulb {
       height:30px;
-      border-radius:50% 50% 45% 45%;
-      background:var(--gold);
-      position:relative;
-      box-shadow:inset -5px -4px 0 rgba(255,255,255,.25);
-    }
-    .logo-bulb:before {
-      content:"";
-      position:absolute;
-      left:10px; top:7px;
-      width:10px; height:12px;
-      border-left:2px solid #111;
-      border-right:2px solid #111;
-      border-radius:50%;
-    }
-    .logo-bulb:after {
-      content:"";
-      position:absolute;
-      width:14px; height:6px;
-      left:8px; bottom:-4px;
-      border-radius:4px;
-      background:var(--tan);
-      box-shadow:0 3px 0 #111;
     }
     .nav-links {
       display:flex;
@@ -501,7 +484,7 @@
 <header>
   <div class="container nav">
     <a href="#" class="logo" aria-label="TutorEd home">
-      <span>TutorEd</span><span class="logo-bulb" aria-hidden="true"></span>
+      <span>TutorEd</span><img class="logo-bulb" src="/logo-bulb.png" alt="" aria-hidden="true">
     </a>
     <nav class="nav-links" aria-label="Main navigation">
       <a href="#find">Find a Tutor</a>
@@ -650,7 +633,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="logo"><span>TutorEd</span><span class="logo-bulb"></span></div>
+        <div class="logo"><span>TutorEd</span><img class="logo-bulb" src="/logo-bulb.png" alt=""></div>
         <p>The right tutor. The right fit.</p>
       </div>
       <div class="footer-col">

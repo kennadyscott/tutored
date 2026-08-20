@@ -70,7 +70,7 @@ h2 { font-family: 'Poppins', sans-serif; font-weight: 700; }
   align-items: center;
   gap: 2px;
 }
-.logo-bulb { font-size: 17px; }
+.logo-bulb { height: 22px; width: auto; margin-left: 2px; }
 .tagline {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
