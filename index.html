@@ -155,16 +155,16 @@
 
     .hero-visual {
       position:relative;
-      height:560px;
-      display:grid;
-      place-items:center;
+      height:620px;
     }
     .phone {
       position:absolute;
-      width:270px;
-      height:500px;
+      top:20px; left:50%;
+      transform:translateX(-50%);
+      width:300px;
+      height:580px;
       border:8px solid #111;
-      border-radius:46px;
+      border-radius:52px;
       background:#fff;
       box-shadow:var(--shadow);
     }
@@ -178,9 +178,11 @@
       background:#111;
     }
     .swipe-stack {
-      position:relative;
-      width:330px;
-      height:430px;
+      position:absolute;
+      top:75px; left:50%;
+      transform:translateX(-50%);
+      width:246px;
+      height:400px;
       z-index:4;
     }
     .tutor-card {
@@ -195,11 +197,11 @@
       transition:transform .35s ease, opacity .35s ease;
       user-select:none;
     }
-    .tutor-card:nth-child(2) { transform:translate(48px, 22px) rotate(2deg) scale(.94); z-index:-1; }
-    .tutor-card:nth-child(3) { transform:translate(87px, 46px) rotate(4deg) scale(.88); z-index:-2; }
+    .tutor-card:nth-child(2) { transform:translate(14px, 12px) rotate(2deg) scale(.95); z-index:-1; }
+    .tutor-card:nth-child(3) { transform:translate(26px, 24px) rotate(4deg) scale(.90); z-index:-2; }
     .tutor-photo {
       width:100%;
-      height:235px;
+      height:210px;
       object-fit:cover;
       object-position:center;
       background:#f1f1f1;
@@ -227,7 +229,7 @@
     }
     .swipe-controls {
       position:absolute;
-      bottom:-74px;
+      bottom:-70px;
       left:50%;
       transform:translateX(-50%);
       z-index:6;
@@ -467,7 +469,7 @@
       .hero { padding-top:52px; }
       .hero-grid { grid-template-columns:1fr; }
       .hero-copy { max-width:680px; }
-      .hero-visual { height:520px; }
+      .hero-visual { height:620px; }
       .value-grid { grid-template-columns:1fr 1fr; }
       .value-intro { grid-column:1 / -1; text-align:center; }
       .value-intro p { margin-inline:auto; }
@@ -482,7 +484,7 @@
       .nav { height:70px; }
       h1 { font-size:51px; letter-spacing:-3px; }
       .hero-copy { font-size:17px; }
-      .hero-visual { height:460px; transform:scale(.9); margin-inline:-30px; }
+      .hero-visual { height:620px; transform:scale(.72); margin-inline:-60px; margin-block:-80px; }
       .value-grid { grid-template-columns:1fr 1fr; gap:34px 18px; }
       .value-intro h2,.section-title,.cta-copy h2 { font-size:34px; }
       .steps { grid-template-columns:1fr; }
