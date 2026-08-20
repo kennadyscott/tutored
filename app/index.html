@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>TutorEd &mdash; Find Your Tutor Match</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="phone">
+
+  <!-- ===== ONBOARDING SCREEN ===== -->
+  <section class="screen" id="screen-onboarding">
+    <header class="top-bar">
+      <div>
+        <div class="logo">TutorEd<span class="logo-bulb">💡</span></div>
+        <div class="tagline">The right tutor. The right fit.</div>
+      </div>
+    </header>
+    <div class="onboarding-content">
+      <h1 class="ob-title">Let's find your match</h1>
+      <p class="ob-sub">A few quick things so we can show you tutors who actually fit.</p>
+
+      <div class="ob-section">
+        <div class="ob-label">What do you need help with?</div>
+        <div class="chip-row" id="ob-subjects"></div>
+      </div>
+
+      <div class="ob-section">
+        <div class="ob-label">When are you usually free?</div>
+        <div class="avail-grid" id="ob-availability"></div>
+      </div>
+
+      <div class="ob-section">
+        <div class="ob-label">What kind of tutor works for you? <span class="ob-hint">(pick up to 3)</span></div>
+        <div class="chip-row" id="ob-styles"></div>
+      </div>
+
+      <div class="ob-section">
+        <div class="ob-label">Budget</div>
+        <div class="chip-row" id="ob-budget"></div>
+      </div>
+    </div>
+    <div class="ob-footer">
+      <button class="primary-btn" id="ob-submit" disabled>Start Matching</button>
+    </div>
+  </section>
+
+  <!-- ===== HOME SCREEN ===== -->
+  <section class="screen hidden" id="screen-home">
+    <header class="top-bar">
+      <div class="logo">TutorEd<span class="logo-bulb">💡</span></div>
+      <button class="icon-btn" id="home-filter-btn" aria-label="Edit preferences">⚙</button>
+    </header>
+    <div class="home-content" id="home-content"></div>
+  </section>
+
+  <!-- ===== DISCOVER SCREEN ===== -->
+  <section class="screen hidden" id="screen-discover">
+    <header class="top-bar">
+      <div class="logo">TutorEd<span class="logo-bulb">💡</span></div>
+      <div class="top-bar-actions">
+        <button class="icon-btn" id="discover-filter-btn" aria-label="Discover filters">🎚</button>
+        <button class="icon-btn" id="filter-btn" aria-label="Edit preferences">⚙</button>
+      </div>
+    </header>
+
+    <div class="card-stack" id="card-stack"></div>
+
+    <div class="action-row">
+      <button class="action-btn undo" id="btn-undo" aria-label="Undo" disabled>↺</button>
+      <button class="action-btn pass" id="btn-pass" aria-label="Pass">✕</button>
+      <button class="action-btn info" id="btn-info" aria-label="More info">i</button>
+      <button class="action-btn like" id="btn-like" aria-label="Like">♥</button>
+    </div>
+  </section>
+
+  <!-- ===== ON-DEMAND SCREEN ===== -->
+  <section class="screen hidden" id="screen-ondemand">
+    <header class="top-bar">
+      <div class="logo">Open This Week</div>
+    </header>
+    <div class="filter-bar" id="od-filters"></div>
+    <div class="ondemand-list" id="ondemand-list"></div>
+  </section>
+
+  <!-- ===== SCHEDULE SCREEN ===== -->
+  <section class="screen hidden" id="screen-schedule">
+    <header class="top-bar">
+      <div class="logo">Your Schedule</div>
+    </header>
+    <div class="schedule-content" id="schedule-content"></div>
+  </section>
+
+  <!-- ===== CHAT SCREEN ===== -->
+  <section class="screen hidden" id="screen-chat">
+    <header class="top-bar chat-header">
+      <button class="icon-btn back-btn" id="chat-back">←</button>
+      <div class="chat-tutor-info">
+        <div class="avatar-sm" id="chat-avatar"></div>
+        <div>
+          <div class="chat-name" id="chat-name"></div>
+          <div class="chat-status">Usually replies within a few hours</div>
+        </div>
+      </div>
+    </header>
+    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-row">
+      <input type="text" id="chat-input" placeholder="Say hello…" autocomplete="off">
+      <button id="chat-send">➤</button>
+    </div>
+  </section>
+
+  <!-- ===== PROFILE / YOU SCREEN ===== -->
+  <section class="screen hidden" id="screen-profile">
+    <header class="top-bar"><div class="logo">You</div></header>
+    <div class="profile-content" id="profile-content"></div>
+  </section>
+
+  <!-- ===== PROFILE DETAIL MODAL ===== -->
+  <div class="modal-overlay hidden" id="detail-modal">
+    <div class="modal-sheet" id="detail-sheet"></div>
+  </div>
+
+  <!-- ===== MATCH CELEBRATION MODAL ===== -->
+  <div class="modal-overlay hidden" id="match-modal">
+    <div class="match-celebration" id="match-celebration-body"></div>
+  </div>
+
+  <!-- ===== SLOT PICKER MODAL ===== -->
+  <div class="modal-overlay hidden" id="slot-modal">
+    <div class="modal-sheet" id="slot-sheet"></div>
+  </div>
+
+  <!-- ===== MANAGE BOOKING / MATCH MODAL ===== -->
+  <div class="modal-overlay hidden" id="manage-modal">
+    <div class="modal-sheet" id="manage-sheet"></div>
+  </div>
+
+  <!-- ===== DISCOVER FILTERS MODAL ===== -->
+  <div class="modal-overlay hidden" id="discover-filter-modal">
+    <div class="modal-sheet" id="discover-filter-sheet"></div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast hidden" id="toast">Saved!</div>
+
+  <!-- ===== BOTTOM NAV ===== -->
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-screen="home">
+      <span class="nav-icon">🏠</span><span>Home</span>
+    </button>
+    <button class="nav-btn" data-screen="discover">
+      <span class="nav-icon">🔍</span><span>Discover</span>
+    </button>
+    <button class="nav-btn" data-screen="ondemand">
+      <span class="nav-icon">⚡</span><span>On-Demand</span>
+    </button>
+    <button class="nav-btn" data-screen="schedule">
+      <span class="nav-icon">📅</span><span>Schedule</span>
+      <span class="nav-badge hidden" id="nav-badge">0</span>
+    </button>
+    <button class="nav-btn" data-screen="profile">
+      <span class="nav-icon">🙂</span><span>You</span>
+    </button>
+  </nav>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
